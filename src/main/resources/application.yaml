@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://git.oriental-game.com/panda.config/common.git
+          username: panda
+          password: worldpeace@og000
+          force-pull: true
+          repos:
+            dealer:
+              pattern:
+                - dealer-app-*
+              uri: http://git.oriental-game.com/panda.config/dealer-app.git
+              username: panda
+              password: worldpeace@og000
+              force-pull: true
+              searchPaths: table
+              clone-on-start: true
+              basedir: repo/dealer-app/
+            pit-boss-server:
+              uri: http://git.oriental-game.com/panda.config/pit-boss-server.git
+              username: panda
+              password: worldpeace@og000
+              force-pull: true
+              clone-on-start: true
+              basedir: repo/pit-boss-server/
+          basedir: repo/common
